@@ -1,12 +1,12 @@
-#  Sistema de Gerenciamento de Tarefas Colaborativo
+# 📋 Sistema de Gerenciamento de Tarefas Colaborativo
 
 Um sistema backend para gerenciamento colaborativo de tarefas, desenvolvido com Node.js, Express, TypeScript e Prisma. O projeto permite que equipes de trabalho ou grupos de estudo organizem tarefas e acompanhem projetos.
 
 ---
 
-##  Objetivo do Projeto
+## Objetivo do Projeto
 
-Construir uma API REST capaz de:
+Construir uma API capaz de:
 
 - Gerenciar usuários e autenticação
 - Criar e organizar projetos
@@ -30,25 +30,37 @@ Construir uma API REST capaz de:
 
 ---
 
-##  Estrutura do Projeto
+## 📁 Estrutura do Projeto
 
 ```
 task-manager/
+├── postman/
 ├── prisma/
 ├── src/
-├── postman/
+│   ├── common/
+│   ├── middlewares/
+│   ├── prisma/
+│   ├── repositories/
+│   ├── routes/
+│   ├── services/
+│   ├── app.ts
+│   └── server.ts
 ├── .env.example
+├── .gitignore
+├── LICENSE
+├── README.md
+├── jest.config.ts
+├── package-lock.json
 ├── package.json
-├── tsconfig.json
 ├── prisma.config.ts
-└── README.md
+└── tsconfig.json
 ```
 
 ---
 
 ##  Funcionalidades
 
-###  Usuários
+### Usuários
 - Cadastro de usuários
 - Login com autenticação JWT
 - Atualização de perfil
