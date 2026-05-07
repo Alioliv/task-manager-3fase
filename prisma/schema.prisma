@@ -35,10 +35,30 @@ model Task {
   status      Status    @default(PENDENTE)
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
+  history   TaskHistory[]
 
 
   // TODO: Quando branch de usuários for mergeada no develop arrumar a relação aqui
   // createdById String
   // createdBy   User   @relation("TaskCreator", fields: [createdById], references: [id])
   // assignees   User[] @relation("TaskAssignees")
+}
+
+// ====== TABELA DE HISTÓRICO ======
+
+model TaskHistory {
+  id        String    @id @default(uuid())
+  taskId    String
+  eventType EventType
+  createdAt DateTime  @default(now())
+
+  task      Task      @relation(fields: [taskId], references: [id])
+}
+
+enum EventType {
+  CREATED
+  ASSIGNED
+  UPDATED
+  COMPLETED
+  REOPENED
 }
