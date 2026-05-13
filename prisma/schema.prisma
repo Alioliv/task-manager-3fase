@@ -15,33 +15,33 @@ datasource db {
 // ====== TABELA DE USUARIOS ======
 
 model User {
-    id Int @id @default(autoincrement())
-    name String?
-    email String @unique
-    password String?
-    createdAt DateTime @default(now())
-    userRoles UserRole[]
+  id        Int        @id @default(autoincrement())
+  name      String?
+  email     String     @unique
+  password  String?
+  createdAt DateTime   @default(now())
+  userRoles UserRole[]
 }
 
 model Role {
-    id Int @id @default(autoincrement())
-    name RoleType @unique
-    userRoles UserRole[]
+  id        Int        @id @default(autoincrement())
+  name      RoleType   @unique
+  userRoles UserRole[]
 }
 
 model UserRole {
-    userId Int
-    roleId Int
-    user User @relation(fields: [userId], references: [id])
-    role Role @relation(fields: [roleId], references: [id])
-    @@id([userId, roleId])
+  userId Int
+  roleId Int
+  user   User @relation(fields: [userId], references: [id])
+  role   Role @relation(fields: [roleId], references: [id])
+
+  @@id([userId, roleId])
 }
 
 enum RoleType {
-    ADMIN
-    MEMBER
+  ADMIN
+  MEMBER
 }
-
 
 // ====== TABELA DE TAREFAS ======
 
@@ -60,17 +60,15 @@ enum Status {
 model Task {
   id          String    @id @default(uuid())
   title       String
-  description String?  
-  dueDate     DateTime? 
+  description String?
+  dueDate     DateTime?
   priority    Priority
   status      Status    @default(PENDENTE)
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
-
 
   // TODO: Quando branch de usuários for mergeada no develop arrumar a relação aqui
   // createdById String
   // createdBy   User   @relation("TaskCreator", fields: [createdById], references: [id])
   // assignees   User[] @relation("TaskAssignees")
 }
-
