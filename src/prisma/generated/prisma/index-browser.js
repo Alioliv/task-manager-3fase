@@ -131,6 +131,13 @@ exports.Prisma.TaskScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.TaskHistoryScalarFieldEnum = {
+  id: 'id',
+  taskId: 'taskId',
+  eventType: 'eventType',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -157,8 +164,17 @@ exports.Status = exports.$Enums.Status = {
   CONCLUIDA: 'CONCLUIDA'
 };
 
+exports.EventType = exports.$Enums.EventType = {
+  CREATED: 'CREATED',
+  ASSIGNED: 'ASSIGNED',
+  UPDATED: 'UPDATED',
+  COMPLETED: 'COMPLETED',
+  REOPENED: 'REOPENED'
+};
+
 exports.Prisma.ModelName = {
-  Task: 'Task'
+  Task: 'Task',
+  TaskHistory: 'TaskHistory'
 };
 
 /**
